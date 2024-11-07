@@ -23,16 +23,17 @@ const ToDoApp = () => {
   };
 
   // Function to delete a task
-  const deleteTask = ({ id }) => {
+  const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id)); // Filtering out the task to delete
   };
 
   // Function to toggle the completed status of a task
-  const toggleComplete = ({ id }) => {
+  const toggleComplete = (id) => {
     // Toggling the completed status of the task
-    setTasks((prev) =>
-      prev.map((task) => {
+    setTasks(
+      tasks.map((task) => {
         if (task.id === id) {
+          // returnerer en kopi af den valgte task, men en ændret værdi i 'completed'
           return { ...task, completed: !task.completed };
         }
         return task;
